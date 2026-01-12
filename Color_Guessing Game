@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+ int main()
+ {
+ char *colors[] = {"red", "blue", "green", "yellow", "orange"};
+ char guess[20];
+ int randomIndex;
+ char choice;
+ srand(time(0));
+ do
+ {
+ randomIndex = rand() % 5;
+ printf("\n COLOUR GUESSING GAME \n");
+ printf("Available colours:\n");
+ printf("Red, Blue, Green, Yellow, Orange\n");
+ printf("\nEnter your guess: ");
+ scanf("%s", guess);
+ if (strcmp(guess, colors[randomIndex]) == 0)
+ {
+ printf("Correct! The colour was %s.\n", colors[randomIndex]);
+ } else
+ {
+ printf("Wrong! The correct colour was %s.\n", colors[randomIndex]);
+ }
+ printf("\nDo you want to play again? (y/n): ");
+ scanf(" %c", &choice);
+ }
+ while (choice == 'y' || choice == 'Y');
+ printf("\nThanks for playing! \n");
+ return 0;
+}
